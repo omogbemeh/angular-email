@@ -1,0 +1,16 @@
+<h1>Create an Account</h1>
+<form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <app-input label='Username' name='Username' placeholder='Enter a username' [control]="username"></app-input>
+    <app-input label='Password' name='Password' placeholder='Enter a Password' [control]="password" type="password">
+    </app-input>
+    <app-input label='Confirm Password' placeholder='Confirm your Password' [control]="passwordConfirmation" type="password">
+    </app-input>
+    <div style="margin-top: 1rem;" class="check__passwords" *ngIf="authForm.errors && password.dirty && passwordConfirmation.dirty && passwordConfirmation.touched && password.touched" class="ui basic red label">
+        <p *ngIf="authForm.errors?.passwordsDoNotMatch">Passwords do not match</p>
+    </div>
+    <div>
+        <button class="ui button primary" type="submit">Sign Up</button>
+    </div>
+</form>
+
+<p>Already have an account? &nbsp; <a routerLink="">Sign In</a></p>

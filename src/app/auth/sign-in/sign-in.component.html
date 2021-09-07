@@ -1,0 +1,13 @@
+<h1>Log In</h1>
+<form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <app-input label="Username" [control]="username" placeholder="Enter your Username"></app-input>
+    <app-input label="Password" [control]="password" type="password" placeholder="Enter your password"></app-input>
+    <div class="ui basic label red" style="margin-top: 1rem;" *ngIf="authForm.errors">
+        <p *ngIf="authForm.errors?.invalidCredentials">Please check your details</p>
+        <p *ngIf="authForm.errors?.noConnection">No internet connection please try again Connection</p>
+        <p *ngIf="authForm.errors?.unknown">Something went wrong please try again</p>
+    </div>
+    <div>
+        <button style="margin: 1rem 0;" class="ui button primary" type="submit">Sign In</button>
+    </div>
+</form>

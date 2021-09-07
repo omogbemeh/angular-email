@@ -1,0 +1,14 @@
+<div class="header">
+    <div>
+        <h3>{{email.subject}}</h3>
+        <div><strong>From:</strong> {{email.from }}</div>
+        <div> <strong>To:</strong> {{ email.to}} </div>
+    </div>
+    <div class="d-flex">
+        <app-email-reply [email]="email"></app-email-reply>
+    </div>
+
+    <div class="ui divider"></div>
+    <div [innerHTML]="email.html"></div>
+
+</div>

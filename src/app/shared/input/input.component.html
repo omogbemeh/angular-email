@@ -1,0 +1,15 @@
+<div class="field">
+    <label>{{ label }}</label>
+    <input *ngIf="controlType === 'input'" [type]="type" [formControl]="control" [placeholder]="placeholder">
+    <textarea *ngIf="controlType === 'textarea'" [formControl]="control" [placeholder]="placeholder"></textarea>
+    <div class="ui pointing basic red label" *ngIf="control.touched && control.errors">
+        <p *ngIf="control.errors?.required">{{ name }} is required</p>
+        <p *ngIf="control.errors?.email">Enter a valid email</p>
+        <p *ngIf="control.errors?.minlength">{{ name }} should be more than {{control.errors.minlength.requiredLength}} characters
+        </p>
+        <p *ngIf="control.errors?.maxlength">{{ name }} should not be more than {{control.errors.maxlength.requiredLength}} characters
+        </p>
+        <p *ngIf="control.errors?.usernameTaken">{{ name }} is already taken
+        </p>
+    </div>
+</div>

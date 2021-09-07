@@ -1,0 +1,6 @@
+<div class="ui secondary vertical menu">
+    <a class="active item" [routerLink]="emailSummary.id" *ngFor="let emailSummary of emailSummaries">
+        <h4>{{ emailSummary.subject}}</h4>
+        <p>{{ emailSummary.from}}</p>
+    </a>
+</div>

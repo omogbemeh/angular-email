@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'inbox',
+    canLoad: [AuthGuard],
+    loadChildren: () =>
+      import('./inbox/inbox.module').then((m) => m.InboxModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
